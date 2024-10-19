@@ -1,0 +1,100 @@
+功能開發日誌 1-1
+9/29/2024
+By - Vulpecula
+
+主功能 : 
+    售屋網站資訊爬蟲
+
+使用套件 :   
+    BeautifulSoup 解讀html
+    requests      發請求
+    re            正則表達式讀取js
+
+目標捕獲網站 :
+    樂屋網 :  https://www.rakuya.com.tw/
+
+    測試集 :
+    '''
+    https://www.rakuya.com.tw/sell_item/info?ehid=098358270717704&from=list_regular
+    https://www.rakuya.com.tw/sell_item/info?ehid=00b118225976043&from=list_regular
+    https://www.rakuya.com.tw/sell_item/info?ehid=0f6a07282132292&from=list_regular
+    '''
+
+    集合 :
+    view-source:https://www.rakuya.com.tw/sell/result?zipcode=802&typecode=R1&sort=101
+    應該是 在 </section> 1727行那邊，2004行
+    <a href="https://www.rakuya.com.tw/sell_item/info?ehid=0fbda9281789326&from=list_regular" target="_blank">
+
+    目標捕獲項目 :
+    <a href="https://www.rakuya.com.tw/sell_item/info?ehid=00b118225976043&from=list_regular" target="_blank">
+    <div class="card__head">
+    <h2>近愛河輕軌屋況美公寓</h2>
+
+    title = item.select_one('h2')
+    items = soup.select('a[href*="/sell_item/info"]')
+
+
+
+更新日誌 1.1.1
+    開發日期 :
+        10/18/2024
+        10/19/2024
+    Crawler 爬蟲功能
+        Part 1  目標捕獲項目 : 抓取頁面中所有房屋之連結
+            items = soup.select('a[href*="/sell_item/info"]')
+            抓到title 與 link 後打包成 pd.DataFrame
+            存取於 House Set . csv
+        
+        Part 2  目標捕獲項目 : 抓取頁面該房屋之資訊
+            {Name,Price,Size,Age,Floors,Bedroom,Location,Tags}
+            最終存成House Info Data . csv
+
+        使用套件 :   
+            BeautifulSoup 解讀html
+            requests      發請求
+            re            正則表達式讀取js
+            pandas        存取整理csv與dataset
+
+        使用插件 :
+            Office Viewer(Markdown Editor)
+    
+    更新總結 :
+        完成了基礎爬蟲功能，看了幾部貓影片
+
+
+
+
+
+
+
+
+
+
+捕獲範例 : 
+    https://www.rakuya.com.tw/sell_item/info?ehid=04cd44217495887&from=list_regular
+    window.tmpDataLayer = {"itemListData":[],
+    "itemData":{
+    "item_name":"成德國中一樓角店",
+    "item_id":"04cd44217495887",
+    "item_brand":"住商不動產",
+    "item_category":"台北市",
+    "item_category2":"115",
+    "item_category3":"",
+    "item_category4":"price3000",
+    "item_category5":"店面",
+    "item_variant":25.96,
+    "age":46.7,
+    "price":26880000,
+    "bedrooms":0,
+    "affiliation":"2495",
+    "object_tag":"邊間,免爬樓梯,大面寬",
+    "object_type3":"中古屋",
+    "object_main_size":25.96,
+    "object_floor":1,
+    "object_upload_time":"2023-03-31",
+    "object_update_time":"2024-09-20",
+    "object_mark":"降價",
+    "object_group_id":"rakuya\/21749588",
+    "object_member_brand":"住商不動產",
+    "object_layout":"有格局圖"},
+    "searchData":[]};
