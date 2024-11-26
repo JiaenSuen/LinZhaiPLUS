@@ -1,0 +1,33 @@
+功能開發日誌 - 爬蟲部分
+
+主功能 : 
+    租售屋網站資訊爬蟲
+    https://www.rakuya.com.tw/rent
+    
+使用套件 :   
+    BeautifulSoup   解讀html
+    requests        發網站請求
+    re              正則表達式讀取js
+    Office Viewer   更優化讀取csv
+    pandas          存取csv與dataset
+
+目標捕獲網站 :
+    樂屋網 :  
+        https://www.rakuya.com.tw/
+        https://www.rakuya.com.tw/rent/rent_item?ehid=0fe16d179350841
+        https://www.rakuya.com.tw/rent/rent_search?search=city&city=99&upd=1
+
+    爬蟲概念 :
+        crawler_url_set    : 抓取搜尋頁面中的對應房屋網頁鏈結
+        crawler_house_info : 抓取出租屋頁面中的重要資訊並儲存
+        
+         
+ 
+
+更新日誌 1.1.2
+    時間 : 2024/11/25
+    本次更新了加入 headers 模擬瀏覽器
+    並在爬蟲時會過濾掉已將紀錄於csv資料庫中的鏈結
+    避免抓取相同資訊，將程式變得更易於管理
+    修正資料錯誤、提高效能，順便探索未知宇宙
+        
