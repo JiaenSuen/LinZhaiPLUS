@@ -62,7 +62,7 @@ pip install -r requirements.txt
 如果有特定的版本或里程碑可以關聯，可以將其附加到該 Issue。
 
 ### 6. 程式區塊
-專案目錄中分別用字母+版本作為功能開發管理方式
+專案目錄中分別用字母+版本作為功能開發管理方式  
 A : Analysis  
 B : Backend  
 C : Crawler  
