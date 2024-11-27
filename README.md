@@ -63,11 +63,11 @@ pip install -r requirements.txt
 
 ### 6. 程式區塊
 專案目錄中分別用字母+版本作為功能開發管理方式
-A : Analysis
-B : Backend
-C : Crawler
-D : Database
-F : Frontend
+A : Analysis  
+B : Backend  
+C : Crawler  
+D : Database  
+F : Frontend  
 
 
 ## 範例 Issue
